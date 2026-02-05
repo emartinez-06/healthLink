@@ -17,6 +17,8 @@ main.js
 
 # obsidian
 data.json
+# for linting with elint
+.tool-versions
 
 # Exclude macOS Finder (System Explorer) View States
 .DS_Store
