@@ -1,5 +1,0 @@
-=======
-fitfile
-=======
-
-Fit file parser.

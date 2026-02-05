@@ -1,18 +1,18 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
-import MyPlugin from "./main";
+import healthLink from "./main";
 
-export interface MyPluginSettings {
+export interface healthLinkSettings {
 	mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: healthLinkSettings = {
 	mySetting: 'default'
 }
 
-export class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+export class healthLinkSettingTab extends PluginSettingTab {
+	plugin: healthLink;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: healthLink) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -23,10 +23,9 @@ export class SampleSettingTab extends PluginSettingTab {
 		containerEl.empty();
 
 		new Setting(containerEl)
-			.setName('Settings #1')
-			.setDesc('It\'s a secret')
+			.setName('Default Folder for GarminDB')
 			.addText(text => text
-				.setPlaceholder('Enter your secret')
+				.setPlaceholder('i.e. /GarminDB')
 				.setValue(this.plugin.settings.mySetting)
 				.onChange(async (value) => {
 					this.plugin.settings.mySetting = value;
