@@ -19,17 +19,15 @@ export default class healthLink extends Plugin {
 
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
-			id: "reload",
-			name: "Reload garmin database",
+			id: "setting",
+			name: "Setting",
 			callback: () => {
-				new callGarminDB(this.app).open();
+				new SettingTab(this.app, this);
 			},
 		});
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new SettingTab(this.app, this));
-
-		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
 	}
 
 	onunload() {}
