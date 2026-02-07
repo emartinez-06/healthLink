@@ -5,4 +5,32 @@ available in the app when your plugin is enabled.
 
 If your plugin does not need CSS, delete this file.
 
+*
 */
+.garmin-card {
+	display: flex;
+	gap: 20px;
+	padding: 15px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+}
+
+.garmin-metric {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.garmin-metric h4 {
+	margin: 0 0 5px 0;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+}
+
+.garmin-value {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: var(--text-accent);
+}
