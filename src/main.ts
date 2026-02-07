@@ -8,9 +8,11 @@
 
 import { App, Editor, MarkdownView, Modal, Notice, Plugin } from "obsidian";
 import { DEFAULT_SETTINGS, healthLinkSettings, SettingTab } from "./settings";
+import { GarminClient } from "utils/helpers";
 
 export default class healthLink extends Plugin {
 	settings: healthLinkSettings;
+	client: GarminClient;
 
 	async onload() {
 		await this.loadSettings();
