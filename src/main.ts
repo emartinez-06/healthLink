@@ -17,7 +17,24 @@ export default class healthLink extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.addRibbonIcon("dna", "Home button", (evt: MouseEvent) => {});
+		// init helper client
+		this.client = new GarminClient(this.settings);
+
+		this.addRibbonIcon(
+			"dna",
+			"Sync garmin data",
+			async (evt: MouseEvent) => {
+				new Notice("Starting garmin sync...");
+				try {
+					await this.client.syncData();
+					new Notice("Garmin sync complete!");
+					await this.saveSettings();
+				} catch (err) {
+					new Notice("Sync failed");
+					console.error(err);
+				}
+			},
+		);
 
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
